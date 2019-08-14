@@ -18,7 +18,7 @@ public class Bibliotecario {
 			throw new LibroNoExisteException(LIBRO_NO_DISPONIBLE_O_NO_EXISTENTE);
 		}
 	}
-	
+
 	public void recibirLibro(Libro libroADevolver) {
 		Optional<Libro> libro = librosRepository.getLibroPrestadoByIsbn(libroADevolver.getIsbn());
 		

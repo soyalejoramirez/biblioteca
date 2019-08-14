@@ -1,4 +1,4 @@
-package co.alejandro.biblioteca;
+package co.alejandro.biblioteca.domain;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
