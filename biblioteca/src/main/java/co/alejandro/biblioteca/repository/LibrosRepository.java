@@ -15,6 +15,10 @@ public class LibrosRepository {
 		prestados = new ArrayList<>();
 	}
 	
+	public void agregar(Libro libro) {
+		disponibles.add(libro);
+	}
+	
 	public Optional<Libro> getLibroDisponibleByIsbn(String isbn) {
 		return disponibles.stream().filter(libro -> libro.getIsbn().equals(isbn)).findFirst();
 	}
