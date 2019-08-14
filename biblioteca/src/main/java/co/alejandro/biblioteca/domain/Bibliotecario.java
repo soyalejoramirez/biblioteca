@@ -34,14 +34,4 @@ public class Bibliotecario {
 	public boolean estaPrestado(String isbn) {
 		return librosRepository.getLibroPrestadoByIsbn(isbn).isPresent();
 	}
-
-	public void recibirLibro(Libro libroADevolver) {
-		Optional<Libro> libro = librosRepository.getLibroPrestadoByIsbn(libroADevolver.getIsbn());
-		
-		if (libro.isPresent()) {			
-			librosRepository.devolver(libro.get());
-		} else {
-			throw new LibroNoExisteException(LIBRO_NO_DISPONIBLE_O_NO_EXISTENTE);
-		}
-	}
 }

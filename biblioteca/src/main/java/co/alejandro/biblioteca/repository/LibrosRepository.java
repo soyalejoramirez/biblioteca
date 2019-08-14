@@ -31,9 +31,4 @@ public class LibrosRepository {
 		prestados.add(libro);
 		disponibles.remove(libro);
 	}
-	
-	public void devolver(Libro libro) {
-		disponibles.add(libro);
-		prestados.add(libro);
-	}
 }
