@@ -13,6 +13,10 @@ public class Bibliotecario {
 		librosRepository = new LibrosRepository();
 	}
 	
+	public Bibliotecario(LibrosRepository repository) {
+		librosRepository = repository;
+	}
+	
 	public void adquirirLibro(Libro libro) {
 		librosRepository.agregar(libro);
 	}
@@ -33,5 +37,13 @@ public class Bibliotecario {
 	
 	public boolean estaPrestado(String isbn) {
 		return librosRepository.getLibroPrestadoByIsbn(isbn).isPresent();
+	}
+
+	public void devolver(Libro libro) {
+		if(estaPrestado(libro.getIsbn())) {			
+			librosRepository.devolver(libro);
+		} else {
+			throw new LibroNoExisteException(LIBRO_NO_DISPONIBLE_O_NO_EXISTENTE);
+		}
 	}
 }
